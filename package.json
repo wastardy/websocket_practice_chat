@@ -1,0 +1,26 @@
+{
+  "name": "websockets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "ts": "tsc -p .",
+    "start": "npm run ts && npm run start:server",
+    "start:server": "node index.js",
+    "dev": "tsc-watch -p tsconfig.json --onSuccess \"npm run start:server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^5.0.1",
+    "@types/ws": "^8.18.1",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "tsc-watch": "^6.2.1",
+    "typescript": "^5.8.3",
+    "ws": "^8.18.1"
+  }
+}
