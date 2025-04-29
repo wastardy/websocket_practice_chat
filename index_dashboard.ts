@@ -1,4 +1,4 @@
-import WebSocket, { RawData, WebSocketServer } from "ws";
+import WebSocket, { WebSocketServer } from "ws";
 import { characters } from "./characters_dashboard";
 import { Character } from "./character.type";
 
@@ -7,54 +7,37 @@ const PORT = 8080;
 const wws = new WebSocketServer({ port: PORT });
 
 const pageSize = 4;
-let currentPage = 1;
 
-const randomizeData = (characters: Character[]): void => {
-  const randomIndex: number = Math.floor(Math.random() * characters.length);
-  const randomCharacter: Character = characters[randomIndex];
+let clients: { ws: WebSocket; currentPage: number }[] = [];
 
-  randomCharacter.name = `${
-    randomCharacter.name
-  } - Updated ${Math.random().toFixed(3)}`;
-
-  randomCharacter.fighting_style = `New Fighting Style ${Math.floor(
-    Math.random() * 10
-  )}`;
-
-  randomCharacter.personality = `New Personality ${Math.random().toFixed(3)}`;
-
-  console.log(`Character updated: ${randomCharacter.name}`);
+const sendPageContent = (ws: WebSocket, page: number): void => {
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  const pageContent = characters.slice(start, end);
+  ws.send(JSON.stringify({ page, content: pageContent }));
 };
 
-setInterval(() => {
-  randomizeData(characters);
-}, 1000);
-
 wws.on("connection", (ws: WebSocket) => {
-  console.log(`New client info loaded ${ws}`);
+  console.log(`New client connected`);
 
-  const sendPageContent = () => {
-    const start = (currentPage - 1) * pageSize;
-    const end = start + pageSize;
-    const pageContent = characters.slice(start, end);
+  const client = { ws, currentPage: 1 };
+  clients.push(client);
 
-    ws.send(JSON.stringify({ page: currentPage, content: pageContent }));
-  };
-
-  sendPageContent();
+  sendPageContent(ws, client.currentPage);
 
   ws.on("message", (message: string) => {
     if (message === "next") {
-      currentPage++;
-      sendPageContent();
-    } else if (message === "prev" && currentPage > 1) {
-      currentPage--;
-      sendPageContent();
+      client.currentPage++;
+      sendPageContent(ws, client.currentPage);
+    } else if (message === "prev" && client.currentPage > 1) {
+      client.currentPage--;
+      sendPageContent(ws, client.currentPage);
     }
   });
 
   ws.on("close", () => {
     console.log("Client disconnected");
+    clients = clients.filter((client) => client.ws !== ws);
   });
 });
 
