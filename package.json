@@ -5,8 +5,8 @@
   "scripts": {
     "ts": "tsc -p .",
     "start": "npm run ts && npm run start:server",
-    "start:server": "node index.js",
-    "start:dashboard": "node index_dashboard.js",
+    "start:server": "ts-node index.ts",
+    "start:dashboard": "ts-node index_dashboard.ts",
     "dev": "tsc-watch -p tsconfig.json --onSuccess \"npm run start:server\"",
     "dev:dashboard": "tsc-watch -p tsconfig.json --onSuccess \"npm run start:dashboard\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,11 +20,12 @@
     "@types/express": "^5.0.1",
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
-    "tsc-watch": "^6.2.1",
-    "typescript": "^5.8.3"
+    "tsc-watch": "^6.2.1"
   },
   "devDependencies": {
     "@types/ws": "^8.18.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
     "ws": "^8.18.1"
   }
 }
