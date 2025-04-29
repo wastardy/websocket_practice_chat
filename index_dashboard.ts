@@ -1,35 +1,36 @@
-import WebSocket, { WebSocketServer } from "ws";
+import WebSocket, { RawData, WebSocketServer } from "ws";
 import { characters } from "./characters_dashboard";
 
 const PORT = 8080;
 
 const wws = new WebSocketServer({ port: PORT });
 
-const users = [
-  { id: 1, name: "Jonathan Joestar" },
-  { id: 2, name: "Dio Brando" },
-  { id: 3, name: "Joseph Joestar" },
-  { id: 4, name: "Jotaro Kujo" },
-  { id: 5, name: "Kakyoin Noriaki" },
-  { id: 6, name: "Polnareff Jean-Pierre" },
-  { id: 7, name: "Avdol Muhammad" },
-  { id: 8, name: "Rohan Kishibe" },
-  { id: 9, name: "Giorno Giovanna" },
-  { id: 10, name: "Bruno Bucciarati" },
-];
+const pageSize = 4;
 
 wws.on("connection", (ws: WebSocket) => {
   console.log(`New client info loaded ${ws}`);
 
-  let index = 0;
-  const interval = setInterval(() => {
-    if (index < characters?.length) {
-      ws.send(JSON.stringify({ character: characters[index] }));
-      index++;
-    } else {
-      clearInterval(interval);
+  let currentPage = 1;
+
+  const sendPageContent = () => {
+    const start = (currentPage - 1) * pageSize;
+    const end = start + pageSize;
+    const pageContent = characters.slice(start, end);
+
+    ws.send(JSON.stringify({ page: currentPage, content: pageContent }));
+  };
+
+  sendPageContent();
+
+  ws.on("message", (message: string) => {
+    if (message === "next") {
+      currentPage++;
+      sendPageContent();
+    } else if (message === "prev" && currentPage > 1) {
+      currentPage--;
+      sendPageContent();
     }
-  }, 3000);
+  });
 
   ws.on("close", () => {
     console.log("Client disconnected");
