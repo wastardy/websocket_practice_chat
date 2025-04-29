@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket User List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+
+      #user-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .user-item {
+        padding: 15px;
+        margin: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .user-item.show {
+        opacity: 1;
+      }
+
+      .user-details {
+        font-size: 14px;
+        margin-top: 5px;
+        color: #666;
+      }
+
+      .user-name {
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Real-time User List</h1>
+    <ul id="user-list"></ul>
+
+    <script>
+      const userList = document.getElementById("user-list");
+
+      const ws = new WebSocket("ws://localhost:8080");
+
+      ws.onmessage = function (event) {
+        const data = JSON.parse(event.data);
+        const user = data.character;
+
+        const userItem = document.createElement("li");
+        userItem.classList.add("user-item");
+
+        const userName = document.createElement("div");
+        userName.classList.add("user-name");
+        userName.textContent = `${user.name} (ID: ${user.id})`;
+
+        const userDetails = document.createElement("div");
+        userDetails.classList.add("user-details");
+        userDetails.innerHTML = `
+          <strong>Stand:</strong> ${user.stand}<br>
+          <strong>First Appearance:</strong> ${user.first_appearance}<br>
+          <strong>Fighting Style:</strong> ${user.fighting_style}<br>
+          <strong>Notable Enemy:</strong> ${user.notable_enemy}<br>
+          <strong>Personality:</strong> ${user.personality}
+        `;
+
+        userItem.appendChild(userName);
+        userItem.appendChild(userDetails);
+
+        userList.appendChild(userItem);
+
+        setTimeout(() => {
+          userItem.classList.add("show");
+        }, 100);
+      };
+    </script>
+  </body>
+</html>
