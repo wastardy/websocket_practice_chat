@@ -12,38 +12,61 @@
         padding: 20px;
       }
 
+      h1 {
+        color: #8e29e7;
+        text-align: center;
+      }
+
       #user-list {
         list-style-type: none;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* space between each user */
       }
 
       .user-item {
+        display: flex;
+        align-items: center;
         padding: 15px;
-        margin: 10px;
+        margin: 0;
         background-color: #f0f0f0;
         border-radius: 5px;
         opacity: 0;
         transition: opacity 1s ease-in-out;
+        gap: 20px; /* space between image and text */
       }
 
       .user-item.show {
         opacity: 1;
       }
 
+      .user-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+
       .user-details {
         font-size: 14px;
-        margin-top: 5px;
-        color: #666;
+        color: #383164;
       }
 
       .user-name {
         font-weight: bold;
         color: #333;
+        margin-bottom: 10px;
+      }
+
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px; /* space between info items */
       }
     </style>
   </head>
   <body>
-    <h1>Real-time User List</h1>
+    <h1>Real-time JoJo Characters List</h1>
     <ul id="user-list"></ul>
 
     <script>
@@ -58,13 +81,19 @@
         const userItem = document.createElement("li");
         userItem.classList.add("user-item");
 
-        const userName = document.createElement("div");
-        userName.classList.add("user-name");
-        userName.textContent = `${user.name} (ID: ${user.id})`;
+        const userImage = document.createElement("img");
+        userImage.classList.add("user-image");
+        userImage.src =
+          user.image ||
+          "data:image/jpeg;base64,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";
+
+        const userInfo = document.createElement("div");
+        userInfo.classList.add("user-info");
 
         const userDetails = document.createElement("div");
         userDetails.classList.add("user-details");
         userDetails.innerHTML = `
+          <strong>Name:</strong> ${user.name}<br>
           <strong>Stand:</strong> ${user.stand}<br>
           <strong>First Appearance:</strong> ${user.first_appearance}<br>
           <strong>Fighting Style:</strong> ${user.fighting_style}<br>
@@ -72,8 +101,9 @@
           <strong>Personality:</strong> ${user.personality}
         `;
 
-        userItem.appendChild(userName);
-        userItem.appendChild(userDetails);
+        userInfo.appendChild(userDetails);
+        userItem.appendChild(userImage);
+        userItem.appendChild(userInfo);
 
         userList.appendChild(userItem);
 
