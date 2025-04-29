@@ -1,4 +1,5 @@
 export const characters = [
+  // JoJo Characters
   {
     id: 1,
     name: "Jonathan Joestar",
@@ -108,5 +109,228 @@ export const characters = [
     personality: "Loyal and empathetic",
     image:
       "https://i.pinimg.com/474x/98/5c/eb/985ceb5db469d201029e38b9479e2759.jpg",
+  },
+
+  // OnePiece Characters
+  {
+    id: 11,
+    name: "Monkey D. Luffy",
+    stand: "Gomu Gomu no Mi",
+    first_appearance: "One Piece Chapter 1",
+    fighting_style: "Gomu Gomu no techniques",
+    notable_enemy: "Blackbeard",
+    personality: "Optimistic and adventurous",
+    image:
+      "https://i.pinimg.com/736x/0e/b6/5a/0eb65a09ad6a7e7d6da86ab1149ef9da.jpg",
+  },
+  {
+    id: 12,
+    name: "Roronoa Zoro",
+    stand: "Santoryu",
+    first_appearance: "One Piece Chapter 3",
+    fighting_style: "Swordsmanship, Three-Sword Style",
+    notable_enemy: "Dracule Mihawk",
+    personality: "Loyal and determined",
+    image:
+      "https://i.pinimg.com/474x/f9/71/4d/f9714d09fe780b211b73a5e92af8ca66.jpg",
+  },
+  {
+    id: 13,
+    name: "Nami",
+    stand: "Climatact",
+    first_appearance: "One Piece Chapter 8",
+    fighting_style: "Navigation, Weather manipulation",
+    notable_enemy: "Arlong",
+    personality: "Cunning and resourceful",
+    image:
+      "https://i.pinimg.com/474x/1f/9c/b4/1f9cb49bc61a9599363bb484e6233a42.jpg",
+  },
+  {
+    id: 14,
+    name: "Usopp",
+    stand: "Sniper",
+    first_appearance: "One Piece Chapter 41",
+    fighting_style: "Sniping, Crafting",
+    notable_enemy: "Trebol",
+    personality: "Cowardly but brave in battle",
+    image:
+      "https://i.pinimg.com/736x/24/aa/90/24aa90111e4f1bbdc8aaa90321936fbf.jpg",
+  },
+  {
+    id: 15,
+    name: "Sanji",
+    stand: "Black Leg",
+    first_appearance: "One Piece Chapter 43",
+    fighting_style: "Martial arts, Cooking",
+    notable_enemy: "Bartholomew Kuma",
+    personality: "Chivalrous and flirtatious",
+    image:
+      "https://i.pinimg.com/736x/41/04/d0/4104d0a7ff5c203277a3f9a1e112f54a.jpg",
+  },
+  {
+    id: 16,
+    name: "Tony Tony Chopper",
+    stand: "Hito Hito no Mi",
+    first_appearance: "One Piece Chapter 154",
+    fighting_style: "Zoan transformation, Medicine",
+    notable_enemy: "Wapol",
+    personality: "Innocent and kind-hearted",
+    image:
+      "https://i.pinimg.com/474x/c0/c7/1b/c0c71bcadc86be5ea1c9193e71e3b05a.jpg",
+  },
+  {
+    id: 17,
+    name: "Nico Robin",
+    stand: "Hana Hana no Mi",
+    first_appearance: "One Piece Chapter 114",
+    fighting_style: "Archaeology, Devil Fruit power",
+    notable_enemy: "CP9",
+    personality: "Calm and intelligent",
+    image:
+      "https://i.pinimg.com/736x/a4/12/48/a41248b2ffbc5379822c7872fbd352d7.jpg",
+  },
+  {
+    id: 18,
+    name: "Franky",
+    stand: "Cyborg Strength",
+    first_appearance: "One Piece Chapter 322",
+    fighting_style: "Cyborg techniques, Shipbuilding",
+    notable_enemy: "Spandam",
+    personality: "Loud and energetic",
+    image:
+      "https://i.pinimg.com/736x/64/ef/cc/64efcc15db6d46b925631b426a62abc9.jpg",
+  },
+  {
+    id: 19,
+    name: "Brook",
+    stand: "Revive",
+    first_appearance: "One Piece Chapter 442",
+    fighting_style: "Swordsmanship, Music",
+    notable_enemy: "Gecko Moria",
+    personality: "Jovial and humorous",
+    image:
+      "https://i.pinimg.com/736x/47/8c/fc/478cfcb862f58425560bd1870f83ac43.jpg",
+  },
+  {
+    id: 20,
+    name: "Jinbe",
+    stand: "Fish-Man Karate",
+    first_appearance: "One Piece Chapter 528",
+    fighting_style: "Fish-Man Karate",
+    notable_enemy: "Big Mom",
+    personality: "Loyal and wise",
+    image:
+      "https://i.pinimg.com/736x/27/1c/63/271c6385dbe5bed80e4b0a21a3dcca21.jpg",
+  },
+
+  // Demon Slayer Characters
+  {
+    id: 21,
+    name: "Tanjiro Kamado",
+    stand: "Water Breathing",
+    first_appearance: "Demon Slayer Episode 1",
+    fighting_style: "Swordsmanship, Water Breathing",
+    notable_enemy: "Muzan Kibutsuji",
+    personality: "Kind-hearted and determined",
+    image:
+      "https://i.pinimg.com/474x/ac/c1/2f/acc12f9e9ee83c64c345dc384ada8ddd.jpg",
+  },
+  {
+    id: 22,
+    name: "Nezuko Kamado",
+    stand: "Demon Form",
+    first_appearance: "Demon Slayer Episode 1",
+    fighting_style: "Demon abilities",
+    notable_enemy: "Muzan Kibutsuji",
+    personality: "Protective and caring",
+    image: "https://avatarfiles.alphacoders.com/367/thumb-1920-367190.jpg",
+  },
+  {
+    id: 23,
+    name: "Zenitsu Agatsuma",
+    stand: "Thunder Breathing",
+    first_appearance: "Demon Slayer Episode 2",
+    fighting_style: "Swordsmanship, Thunder Breathing",
+    notable_enemy: "Daki",
+    personality: "Cowardly but brave in battle",
+    image:
+      "https://i.pinimg.com/564x/b4/ec/a4/b4eca40030fd61bef28dc7c9d0955a61.jpg",
+  },
+  {
+    id: 24,
+    name: "Inosuke Hashibira",
+    stand: "Beast Breathing",
+    first_appearance: "Demon Slayer Episode 3",
+    fighting_style: "Swordsmanship, Beast Breathing",
+    notable_enemy: "Kanao Tsuyuri",
+    personality: "Wild and impulsive",
+    image:
+      "https://i.pinimg.com/736x/90/fe/9d/90fe9d48f926b2db28c160537faec155.jpg",
+  },
+  {
+    id: 25,
+    name: "Kanao Tsuyuri",
+    stand: "Flower Breathing",
+    first_appearance: "Demon Slayer Episode 5",
+    fighting_style: "Swordsmanship, Flower Breathing",
+    notable_enemy: "Daki",
+    personality: "Calm and composed",
+    image:
+      "https://i.pinimg.com/736x/45/0e/67/450e67e02ce771748b708e5fbe8a36f6.jpg",
+  },
+  {
+    id: 26,
+    name: "Kagaya Ubuyashiki",
+    stand: "Leader of the Demon Slayer Corps",
+    first_appearance: "Demon Slayer Episode 8",
+    fighting_style: "Leadership and strategy",
+    notable_enemy: "Muzan Kibutsuji",
+    personality: "Calm and wise",
+    image:
+      "https://i.pinimg.com/736x/48/33/f0/4833f0b87fc389e6012918a69788bc44.jpg",
+  },
+  {
+    id: 27,
+    name: "Shinobu Kocho",
+    stand: "Insect Breathing",
+    first_appearance: "Demon Slayer Episode 6",
+    fighting_style: "Swordsmanship, Insect Breathing",
+    notable_enemy: "Muzan Kibutsuji",
+    personality: "Gentle but fierce",
+    image:
+      "https://i.pinimg.com/originals/67/bc/f1/67bcf160c0643d61b6d9da16e564d96b.jpg",
+  },
+  {
+    id: 28,
+    name: "Giyu Tomioka",
+    stand: "Water Breathing",
+    first_appearance: "Demon Slayer Episode 1",
+    fighting_style: "Swordsmanship, Water Breathing",
+    notable_enemy: "Muzan Kibutsuji",
+    personality: "Stoic and determined",
+    image:
+      "https://i.pinimg.com/736x/23/63/5d/23635de1a361ea5ff02f5e192ef380cf.jpg",
+  },
+  {
+    id: 29,
+    name: "Muzan Kibutsuji",
+    stand: "Demon King",
+    first_appearance: "Demon Slayer Episode 1",
+    fighting_style: "Demon abilities, regeneration",
+    notable_enemy: "Demon Slayer Corps",
+    personality: "Manipulative and cruel",
+    image:
+      "https://i.pinimg.com/474x/0b/0c/d2/0b0cd2185df22093dfff60e5a87196b7.jpg",
+  },
+  {
+    id: 30,
+    name: "Tengen Uzui",
+    stand: "Sound Breathing",
+    first_appearance: "Demon Slayer Episode 8",
+    fighting_style: "Sound Breathing, Dual-wielding",
+    notable_enemy: "Gyutaro",
+    personality: "Exuberant, flamboyant, and confident",
+    image:
+      "https://i.pinimg.com/736x/5d/92/77/5d9277b516c2da80b7e692624460f44f.jpg",
   },
 ];
